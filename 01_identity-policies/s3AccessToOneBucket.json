@@ -1,0 +1,30 @@
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "FullAccessRobotBuckets",
+            "Effect": "Allow",
+            "Action": [
+                "s3:CreateBucket",
+                "s3:ListBucket*",
+                "s3:PutBucket*",
+                "s3:GetBucket*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::robot-gifs",
+                "arn:aws:s3:::robot-gifs/*"
+            ]
+        },
+        {
+            "Sid": "DenyOtherBuckets",
+            "Effect": "Deny",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::cf-templates-12k5penb2sgai-us-east-1",
+                "arn:aws:s3:::english-zip123",
+                "arn:aws:s3:::sun-cli"
+            ]
+        }
+    ]
+}
